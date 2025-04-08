@@ -1,0 +1,306 @@
+/* Base Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Fade-in Effect */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Container (Red Tile) */
+.container {
+  text-align: center;
+  padding: 40px 60px;
+  margin: 40px auto;
+  max-width: 800px;
+  border: 4px double #8B0000;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 0 15px #8B0000;
+  position: relative;
+  z-index: 1;
+}
+
+/* Buttons */
+.pixel-button,
+.proposal-button {
+  background: #FF1493;
+  color: #fff;
+  border: 2px solid #8B0000;
+  padding: 12px 24px;
+  margin: 15px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 16px;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pixel-button:hover,
+.proposal-button:hover {
+  box-shadow: 0 0 8px #8B0000;
+  transform: scale(1.05);
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-20px); }
+  50%  { transform: translateY(0); }
+  70%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+.bounce {
+  animation: bounce 0.6s ease;
+}
+
+/* Proposal Container & Buttons */
+.proposal-container {
+  position: relative;
+  min-height: 300px;
+  margin: 20px auto;
+  max-width: 800px;
+  /* Pastel brown background */
+  background: rgba(197, 149, 86, 0.85); /* "tan" color w/ transparency */
+  border: 4px double #75390f; /* darker brown border */
+  border-radius: 12px;
+  color: #000; /* black text */
+  box-shadow: 0 0 15px rgba(194, 146, 84, 0.753);
+}
+
+.button-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#yes-button {
+  position: absolute;
+  left: calc(50% - 120px);
+  top: 20px;
+  z-index: 2;
+}
+#no-button {
+  position: absolute;
+  left: calc(50% + 20px);
+  top: 20px;
+  z-index: 2;
+  transition: all 0.2s ease;
+}
+
+/* Video Background (sent to the back) */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;  /* ensure background videos are behind container */
+  opacity: 0.3;
+  overflow: hidden;
+}
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Content Video Container */
+.video-container {
+  margin: 30px auto;
+  position: relative;
+  z-index: 2;
+}
+.video-container video {
+  max-width: 100%;
+  height: auto;
+  border: 4px solid #8B0000;
+  border-radius: 8px;
+}
+
+/* Headings & Paragraphs */
+h1 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  position: relative;
+  z-index: 2;
+}
+p {
+  margin: 20px 0;
+  font-size: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Heart Animation */
+.heart-animation {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  position: relative;
+  z-index: 2;
+}
+.heart {
+  width: 40px;
+  height: 40px;
+  background: red;
+  margin: 0 10px;
+  clip-path: polygon(
+    50% 0%, 61% 12%, 75% 12%, 85% 25%, 90% 40%, 
+    82% 55%, 70% 65%, 50% 80%, 30% 65%, 18% 55%, 
+    10% 40%, 15% 25%, 25% 12%, 39% 12%
+  );
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Confetti Canvas */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+/* Date Ideas Page */
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+.date-tile {
+  background: #1a1a1a;
+  border: 4px double #8B0000;
+  border-radius: 8px;
+  padding: 20px;
+  /* width: 250px; <-- no need with grid */
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.date-tile a {
+  color: #00ffff; /* bright cyan for contrast */
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.date-tile a:hover {
+  text-decoration: underline;
+  color: #ff69b4; /* pink on hover, for fun */
+}
+
+.date-tile:hover {
+  box-shadow: 0 0 10px #8B0000;
+  transform: translateY(-5px);
+}
+.date-tile h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+.date-tile ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.date-tile li {
+  margin: 8px 0;
+}
+.date-tile p {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  background: rgba(51, 51, 51, 0.95);
+  border: 2px solid #8B0000;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: left;
+  position: relative;
+  z-index: 3;
+}
+.dropdown-content.show {
+  display: block;
+}
+
+/* Love Messages */
+.love-messages {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+  position: relative;
+  z-index: 2;
+}
+.love-message {
+  margin: 20px 0;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  animation: fadeInMessage 0.5s ease-out forwards;
+  opacity: 0;
+}
+@keyframes fadeInMessage {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.love-message:hover {
+  background: rgba(255, 20, 147, 0.2);
+  box-shadow: 0 0 15px #ff1493;
+}
+.love-message:nth-child(1) { animation-delay: 0.5s; }
+.love-message:nth-child(2) { animation-delay: 1s; }
+.love-message:nth-child(3) { animation-delay: 1.5s; }
+.love-message:nth-child(4) { animation-delay: 2s; }
+.love-message:nth-child(5) { animation-delay: 2.5s; }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 20px;
+    margin: 20px;
+  }
+  .button-container {
+    width: 100%;
+    height: 100px;
+  }
+  #no-button {
+    position: relative;
+  }
+}

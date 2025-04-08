@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will You Be My Valentine?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <!-- You can remove duplicate audio tags if not needed -->
+</head>
+<body class="fade-in">
+  <!-- Background Video (village.mp4) -->
+  <div class="video-background">
+    <video autoplay loop muted>
+      <source src="assets/village.mp4" type="video/mp4">
+    </video>
+  </div>
+  
+  <!-- Background Music (proposal.mp3) plays on page load -->
+  <audio id="bg-music" src="assets/proposal.mp3" loop autoplay></audio>
+  <audio id="romantic-tune" src="assets/romantic-tune.mp3"></audio>
+  
+  <!-- Lighter themed container for proposal page -->
+  <div class="container proposal-container" style="background: rgba(255,255,255,0.9); color: #000;">
+    <h1>Will You Be My Valentine?</h1>
+    <div class="button-container">
+      <!-- "Yes" button: bounces, launches confetti then navigates to dates.html -->
+      <button id="yes-button" class="proposal-button bounce-button">Yes</button>
+      <!-- "No" button: moves within the container on hover/click -->
+      <button id="no-button" class="proposal-button">No</button>
+    </div>
+  </div>
+  
+  <canvas id="confetti-canvas"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
